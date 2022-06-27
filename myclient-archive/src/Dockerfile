@@ -30,6 +30,8 @@ RUN \
         rm /readflag.c
 RUN groupmod -g 1337 www-data -o
 RUN groupmod -g 1337 mysql -o
+RUN chmod 644 /etc/my.cnf
+RUN service mysql restart
 EXPOSE 80
 ENTRYPOINT ["bash","/start.sh"]
 
